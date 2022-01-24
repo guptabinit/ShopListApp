@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_purple"
+    tools:context=".ListActivity"
+    tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/hello_there"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple"
+        android:fontFamily="@font/montserrat_bold"
+        android:padding="@dimen/_20sdp"
+        android:text="Hello there!"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_30sdp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/hello_there"
+        android:padding="@dimen/_8sdp">
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <!--This will be the parent Floating Action Button-->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/add_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Add"
+        android:textSize="@dimen/_15sdp"
+        app:icon="@drawable/ic_baseline_add_circle_outline_24" />
+
+</RelativeLayout>
