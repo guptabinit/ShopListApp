@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -29,8 +30,8 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        //Floating Action Bar
 
-        //-------------------FAB-----------------------------------
         addListFab = findViewById(R.id.add_fab);
 
         addListFab.setOnClickListener(new View.OnClickListener() {
@@ -41,10 +42,16 @@ public class ListActivity extends AppCompatActivity {
             }
         });
 
+        // Initialising the Realm Database
+
         Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();
 
+        //Sorting the List Items on the basis of Time.
+
         RealmResults<ItemDetails> itemsList = realm.where(ItemDetails.class).findAllSorted("createdTime", Sort.DESCENDING);
+
+        //Fetching Data
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

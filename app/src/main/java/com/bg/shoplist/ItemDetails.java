@@ -3,6 +3,7 @@ package com.bg.shoplist;
 import io.realm.RealmObject;
 
 public class ItemDetails extends RealmObject {
+
     String item_name;
     String price;
     long createdTime;

@@ -33,14 +33,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view, parent, false));
     }
 
+    //Reformatting time as per our date and time format
+
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         ItemDetails itemDetails = itemList.get(position);
         holder.nameOutput.setText(itemDetails.getItem_name());
         holder.priceOutput.setText(itemDetails.getPrice());
 
-        String formmatedTime = DateFormat.getDateTimeInstance().format(itemDetails.createdTime);
-        holder.timeOutput.setText(formmatedTime);
+        String formattedTime = DateFormat.getDateTimeInstance().format(itemDetails.createdTime);
+        holder.timeOutput.setText(formattedTime);
+
+        //-------------------------Long-Press Delete----------------------------------------------
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -69,6 +73,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         });
 
     }
+
+    //Fetching the data and providing it to the designated output places
 
     @Override
     public int getItemCount() {
